@@ -22,6 +22,20 @@
                 <th>Celková cena</th>
             </tr>
         </thead>
+
+        <?php
+        $handle = @fopen ('objednavky.csv', 'r');
+        if ($handle) {
+            while (($line = fgets($handle, 4096)) !== false) {
+                $hodnoty = explode(';', $line);
+                echo'<tr><td>' . $hodnoty[0] .'</td>';
+                echo'<td>' . $hodnoty[3] .'</td>';
+                echo'<td>' . $hodnoty[2] .'</td>';
+                echo'<td>' . $hodnoty[1] .'</td></tr>';
+            }
+        }
+        ?>
+
         <tr>
             <td>123</td>
             <td>Josef</td>
